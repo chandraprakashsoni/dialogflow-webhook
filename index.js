@@ -77,5 +77,5 @@ var processWebhook = function( request, response ){
   intentMap.set('Default Fallback Intent', fallback);
   intentMap.set('Weather API', weatherAPIHandler);
   agent.handleRequest(intentMap);
-});
+};
 
