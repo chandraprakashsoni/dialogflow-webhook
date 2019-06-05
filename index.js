@@ -63,12 +63,12 @@ var processWebhook = function( request, response ){
 
   function weatherAPIHandler(agent){
     agent.add('Speaking');
-    return axios.get(`https://elaachi-dashboard.herokuapp.com/getAllRunners`)
-      .then((result) => {
-        console.log(result);
-        console.log(result[0]);
-        agent.add(result[0].name);
-      });
+    // return axios.get(`https://elaachi-dashboard.herokuapp.com/getAllRunners`)
+    //   .then((result) => {
+    //     console.log(result);
+    //     console.log(result[0]);
+    //     agent.add(result[0].name);
+    //   });
   }
 
   // Run the proper function handler based on the matched Dialogflow intent name
