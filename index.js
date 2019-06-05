@@ -9,7 +9,16 @@ const {Card, Suggestion} = require('dialogflow-fulfillment');
 
 process.env.DEBUG = 'dialogflow:debug'; // enables lib debugging statements
 
-exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
+// exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
+const express = require('express');
+const app = express();
+app.use( express.json() );
+
+app.get('/', (req, res) => processWebhook( req, res ));
+
+app.listen(3000, () => console.log('App listening on port 3000!'));
+
+var processWebhook = function( request, response ){
   const agent = new WebhookClient({ request, response });
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
