@@ -66,7 +66,7 @@ var processWebhook = function( request, response ){
     return axios.get(`http://dummy.restapiexample.com/api/v1/employee/16070`)
       .then((result) => {
         console.log(result);
-        agent.add(result.id);
+        agent.add(result);
       });
   }
 
