@@ -19,7 +19,6 @@ app.post('/', (req, res) => processWebhook( req, res ));
 app.listen(process.env.PORT, () => console.log('App listening on port ', process.env.PORT));
 
 var processWebhook = function( request, response ){
-  response.send("fine");
   const agent = new WebhookClient({ request, response });
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
