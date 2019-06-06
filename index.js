@@ -7,7 +7,7 @@ const functions = require('firebase-functions');
 const {WebhookClient} = require('dialogflow-fulfillment');
 const {Card, Suggestion} = require('dialogflow-fulfillment');
 
-process.env.DEBUG = 'dialogflow:debug'; // enables lib debugging statements
+// process.env.DEBUG = 'dialogflow:debug'; // enables lib debugging statements
 
 // exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, response) => {
 const express = require('express');
@@ -63,11 +63,10 @@ var processWebhook = function( request, response ){
 
   function weatherAPIHandler(agent){
     agent.add('Speaking');
-    return axios.get(`http://elaachi.herokuapp.com/dia/bestWith?token=AESDCFWERT1223$190H&restID=5c5d81f55c071d24775f5d43&name=Idli`)
+    return axios.get(`http://dummy.restapiexample.com/api/v1/employee/16070`)
       .then((result) => {
-        console.log(result.data);
-        console.log(result.data[0]);
-        agent.add(result.data[0].name);
+        console.log(result);
+        agent.add(result.id);
       });
   }
 
