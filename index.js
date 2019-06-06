@@ -19,6 +19,7 @@ app.post('/', (req, res) => processWebhook( req, res ));
 app.listen(process.env.PORT, () => console.log('App listening on port ', process.env.PORT));
 
 var processWebhook = function( request, response ){
+  console.log(request);
   const agent = new WebhookClient({ request, response });
   console.log('Dialogflow Request headers: ' + JSON.stringify(request.headers));
   console.log('Dialogflow Request body: ' + JSON.stringify(request.body));
@@ -65,9 +66,9 @@ var processWebhook = function( request, response ){
     agent.add('Speaking');
     return axios.get(`http://dummy.restapiexample.com/api/v1/employee/16070`)
       .then((result) => {
-        console.log(result);
-        console.log("data is", result.data);
-        agent.add(result.data.id);
+        // console.log(result);
+        // console.log("data is", result.data);
+        agent.add(result.data.employee_name);
       });
   }
 
