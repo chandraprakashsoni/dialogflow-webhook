@@ -14,9 +14,9 @@ const express = require('express');
 const app = express();
 app.use( express.json() );
 
-app.get('/', (req, res) => processWebhook( req, res ));
+app.post('/', (req, res) => processWebhook( req, res ));
 
-app.listen(process.env.PORT, () => console.log('App listening on port 3000!'));
+app.listen(process.env.PORT, () => console.log('App listening on port ', process.env.PORT));
 
 var processWebhook = function( request, response ){
   response.send("fine");
