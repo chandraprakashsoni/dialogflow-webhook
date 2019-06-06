@@ -65,7 +65,7 @@ var processWebhook = function( request, response ){
     agent.add('Speaking');
     return axios.get(`http://elaachi.herokuapp.com/dia/bestWith?token=AESDCFWERT1223$190H&restID=5c5d81f55c071d24775f5d43&name=Idli`)
       .then((result) => {
-        console.log(result.data;
+        console.log(result.data);
         console.log(result.data[0]);
         agent.add(result.data[0].name);
       });
