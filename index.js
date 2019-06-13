@@ -64,10 +64,12 @@ var processWebhook = function( request, response ){
 
   function weatherAPIHandler(agent){
     agent.add('Speaking');
+    //Use any API Here
     return axios.get(`http://dummy.restapiexample.com/api/v1/employee/16070`)
       .then((result) => {
         // console.log(result);
         // console.log("data is", result.data);
+        //Returning the result to Dialogflow
         agent.add(result.data.employee_name);
       });
   }
